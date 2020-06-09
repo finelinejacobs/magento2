@@ -1570,10 +1570,10 @@ class Collection extends \Magento\Catalog\Model\ResourceModel\Collection\Abstrac
 
         $this->_allIdsCache = null;
 
-        if (is_string($attribute) && $attribute == 'is_saleable') {
-            $this->addIsSaleableAttributeToFilter($condition);
+        if (is_string($attribute)) {
+            return $this->addIsSaleableAttributeToFilter($condition);
         } elseif (is_string($attribute) && $attribute == 'tier_price') {
-            $this->addTierPriceAttributeToFilter($attribute, $condition);
+            return $this->addTierPriceAttributeToFilter($attribute, $condition);
         } else {
             return parent::addAttributeToFilter($attribute, $condition, $joinType);
         }
